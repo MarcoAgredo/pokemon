@@ -1,9 +1,12 @@
 package com.crud.pokemon.model;
 
 
+import com.crud.pokemon.enums.Enum_Tipo;
 import lombok.*;
+import org.springframework.data.jpa.repository.support.EntityManagerBeanDefinitionRegistrarPostProcessor;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -21,5 +24,21 @@ public class Pokemon {
     private String nombre;
     private int vida;
     private  int ataque;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo")
+    private Enum_Tipo tipo;
+
+    //RELACION UNO A UNO
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "entrenador_id")
+//    private Entrenador entrenador;
+
+//    @ManyToOne
+//    @JoinColumn(name = "entrenador_id")
+//    private Entrenador entrenador;
+
+    @ManyToMany
+    @JoinTable(name = "entrenador_pokemon")
+    private List<Entrenador> entrenadors;
 
 }

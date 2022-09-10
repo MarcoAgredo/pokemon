@@ -20,14 +20,21 @@ public class PokemonController {
     }
 
     @DeleteMapping("/pokemon/{id}")
-    private void eliminarPokemon(@PathVariable("id") long id){
+    private void eliminarPokemon(@PathVariable("id") Long id){
         pokemonService.eliminarPokemon(id);
     }
 
 
     @PostMapping("/pokemon")
-    private void crearPokemon(@RequestBody Pokemon pokemon){
-        pokemonService.crearPokemon(pokemon);
+    private void crearYActualizarPokemon(@RequestBody Pokemon pokemon){
+        pokemonService.crearYActualizarPokemon(pokemon);
+
+    }
+
+    @PutMapping("/pokemon")
+    private void editarPokemon(@RequestBody Pokemon pokemon){
+        pokemonService.crearYActualizarPokemon(pokemon);
+
 
     }
 

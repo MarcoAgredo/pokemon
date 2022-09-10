@@ -14,7 +14,7 @@ public class PokemonService {
     @Autowired
     PokemonRepository pokemonRepository;
 
-    public void crearPokemon(Pokemon pokemon){
+    public void crearYActualizarPokemon(Pokemon pokemon){
         pokemonRepository.save(pokemon);
     }
 
@@ -28,8 +28,6 @@ public class PokemonService {
         pokemonRepository.deleteById(id);
     }
 
-    public void editarPokemon(){
-    }
 
 
 
